@@ -2,13 +2,14 @@ workflows:
   android-app:
     name: Android App
     max_build_duration: 30
+    instance:
+      image: android:latest
     environment:
-      android:
-        image: latest
       java: 17
     scripts:
       - name: Build APK
         script: ./gradlew assembleDebug
     artifacts:
       - app/build/outputs/**/*.apk
+
 
